@@ -7,6 +7,7 @@ Documentation
 -------------
 
 [model.class.php](https://github.com/skimhub/no-bs-framework/wiki/model.class.php) - Database interaction without pain
+
 [admin_helper.class.php](https://github.com/skimhub/no-bs-framework/wiki/admin_helper.class.php) - Bootstrap admin without hassle
 
 
