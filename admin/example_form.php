@@ -60,10 +60,6 @@ if (isset($_REQUEST['product_id']) && !isset($_REQUEST['update_product'])){
                         $admin_helper->success("Product updated successfully");
                     }
 
-                    if (!count($product->schema['category_id']['options'])){
-                        $admin_helper->error("You can't add products until you added at least on category. <a href=\"index.php?menu=products_categories\">Click here to add one</a>");
-                    }
-
                     if (isset($update) && $update){ 
                         $buttons = "<input type=\"hidden\" name=\"menu\" value=\"products_new\" />
                                     <input type=\"hidden\" name=\"product_id\" value=\"{$_REQUEST['product_id']}\" />
@@ -75,7 +71,7 @@ if (isset($_REQUEST['product_id']) && !isset($_REQUEST['update_product'])){
 
 
                     $admin_helper->renderForm($product, 
-                                              array("thumbnail", "title", "category_id", "description_short", "description_long", "price", "recurring"), 
+                                              array("thumbnail", "title", "description_short", "description_long", "price", "recurring"), 
                                               "form-horizontal",
                                               $buttons,
                                               $params,

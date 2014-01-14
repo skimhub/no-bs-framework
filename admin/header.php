@@ -6,7 +6,7 @@
         <meta name="description" content="">
         <meta name="author" content="">
 
-        <title>vendorPHP</title>
+        <title>No-BS demo</title>
 
         <!-- Bootstrap core CSS -->
         <link href="css/bootstrap.css" rel="stylesheet">
@@ -28,7 +28,7 @@
 
                 <ul class="nav navbar-nav side-nav">
                     <li class="sidenav-brand hidden-xs">
-                        vendor<strong>PHP</strong>
+                        No <strong>BS</strong>
                         <i class="fa fa-power-off pull-right brand-button" onclick="window.location = 'index.php?logout=1'"></i>
                     </li>
                     <?php
@@ -47,7 +47,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="index.php">vendor<strong>PHP</strong></a>
+                    <a class="navbar-brand" href="index.php">No <strong>BS</strong></a>
                 </div>
                 
                 <!-- Collect the nav links, forms, and other content for toggling -->

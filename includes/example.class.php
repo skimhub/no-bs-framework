@@ -21,12 +21,6 @@ class Example extends Model {
                                                   "height" => "150",
                                                   "nice_name" => "Thumbnail"),
 
-                            "category_id" => array("type" => "select",
-                                                   "options" => array(),
-                                                   "required" => true,
-                                                   "notnull" => true,
-                                                   "nice_name" => "Category"),
-
                             "description_short" =>  array("type" => "text",
                                                           "required" => true,
                                                           "notnull" => true,
