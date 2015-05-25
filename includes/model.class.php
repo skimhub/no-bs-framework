@@ -18,7 +18,7 @@ class Model {
 
 
                 if (!isset($errors[$field]) && $rules['type'] == "int" && (!is_numeric($params[$field]) || (int) $params[$field] != $params[$field])) {
-                    $errors[$filed] = $rules['nice_name']." must be numeric";
+                    $errors[$field] = $rules['nice_name']." must be numeric";
                 } 
 
                 if (!isset($errors[$field]) && $rules['type'] == "float" && !is_numeric($params[$field])){
@@ -58,24 +58,18 @@ class Model {
     }
 
     public function add($params){
-        $errors = $this->validate($params);
+		$fields = array();
+		$values = array();
+		foreach($params as $key => $val){
+			if (isset($this->schema[$key])){
+				$fields[] = "`".$this->db->real_escape_string($key)."`";
+				$values[] = "'".$this->db->real_escape_string($val)."'";
+			}
+		}
 
-        if (count($errors)){
-            return array("status" => false, "errors" => $errors);
-        } else {
-            $fields = array();
-            $values = array();
-            foreach($params as $key => $val){
-                if (isset($this->schema[$key])){
-                    $fields[] = "`".$this->db->real_escape_string($key)."`";
-                    $values[] = "'".$this->db->real_escape_string($val)."'";
-                }
-            }
+		$res = $this->db->query("INSERT INTO ".$this->table."(".implode(",", $fields).") VALUES(".implode(",", $values).")") or die($this->db->error." #".__LINE__);
 
-            $res = $this->db->query("INSERT INTO ".$this->table."(".implode(",", $fields).") VALUES(".implode(",", $values).")") or die($this->db->error." #".__LINE__);
-
-            return array("status" => true, "id" => $this->db->insert_id);
-        }
+		return $this->db->insert_id;
     }
 
     public function update($id, $params){
